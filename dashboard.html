@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SonaricBox</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+    body {
+      background-color: #f9f9f9;
+      padding: 0;
+    }
+    header {
+      background-color: white;
+      padding: 15px 25px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      font-size: 20px;
+    }
+    header nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #222;
+      font-weight: bold;
+    }
+    .container {
+      padding: 30px;
+    }
+    .actions {
+      margin-bottom: 20px;
+    }
+    .actions button {
+      padding: 10px 20px;
+      margin-right: 10px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .add-stream {
+      background-color: white;
+      color: #3f51b5;
+      border: 1px solid #3f51b5;
+    }
+    .delete-streams {
+      background-color: #f50057;
+      color: white;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: white;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    th, td {
+      text-align: left;
+      padding: 12px;
+      border-bottom: 1px solid #eee;
+      font-size: 14px;
+    }
+    th {
+      background-color: #fafafa;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>SonaricBox</h1>
+    <nav>
+      <a href="#">REPORT ISSUE</a>
+      <a href="#">LOGOUT</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="actions">
+      <button class="add-stream">ADD STREAM</button>
+      <button class="delete-streams">DELETE ALL STREAMS</button>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Game</th>
+          <th>Channel</th>
+          <th>HD/SD</th>
+          <th>Link</th>
+          <th>Mobile</th>
+          <th>Ads</th>
+          <th>NSFW</th>
+          <th>Adblock</th>
+          <th>Lang</th>
+          <th>Added At</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Add rows here -->
+      </tbody>
+    </table>
+  </div>
+
+</body>
+</html>
