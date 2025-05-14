@@ -3,114 +3,81 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SonaricBox</title>
+  <title>SonaricBox - Login</title>
   <style>
-    * {
-      box-sizing: border-box;
+    body {
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
-    }
-    body {
       background-color: #f9f9f9;
-      padding: 0;
-    }
-    header {
-      background-color: white;
-      padding: 15px 25px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
+      height: 100vh;
     }
-    header h1 {
-      font-size: 20px;
-    }
-    header nav a {
-      margin-left: 20px;
-      text-decoration: none;
-      color: #222;
-      font-weight: bold;
-    }
-    .container {
-      padding: 30px;
-    }
-    .actions {
-      margin-bottom: 20px;
-    }
-    .actions button {
-      padding: 10px 20px;
-      margin-right: 10px;
-      border: none;
-      border-radius: 20px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-    .add-stream {
-      background-color: white;
-      color: #3f51b5;
-      border: 1px solid #3f51b5;
-    }
-    .delete-streams {
-      background-color: #f50057;
-      color: white;
-    }
-    table {
+    .login-box {
+      background: #fff;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
       width: 100%;
-      border-collapse: collapse;
-      background-color: white;
-      border-radius: 10px;
-      overflow: hidden;
+      max-width: 400px;
     }
-    th, td {
-      text-align: left;
-      padding: 12px;
-      border-bottom: 1px solid #eee;
-      font-size: 14px;
+    h2 {
+      margin-bottom: 20px;
+      font-size: 22px;
     }
-    th {
-      background-color: #fafafa;
-      font-weight: bold;
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: none;
+      border-bottom: 2px solid #3f51b5;
+      outline: none;
+      font-size: 16px;
+    }
+    button {
+      background: #3f51b5;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      width: 100%;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .error {
+      color: red;
+      margin-bottom: 15px;
     }
   </style>
 </head>
 <body>
+  <div class="login-box">
+    <h2>Login to SonaricBox</h2>
+    <?php
+    $error = '';
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $email = $_POST['email'];
+        $password = $_POST['password'];
 
-  <header>
-    <h1>SonaricBox</h1>
-    <nav>
-      <a href="#">REPORT ISSUE</a>
-      <a href="#">LOGOUT</a>
-    </nav>
-  </header>
-
-  <div class="container">
-    <div class="actions">
-      <button class="add-stream">ADD STREAM</button>
-      <button class="delete-streams">DELETE ALL STREAMS</button>
-    </div>
-
-    <table>
-      <thead>
-        <tr>
-          <th>Game</th>
-          <th>Channel</th>
-          <th>HD/SD</th>
-          <th>Link</th>
-          <th>Mobile</th>
-          <th>Ads</th>
-          <th>NSFW</th>
-          <th>Adblock</th>
-          <th>Lang</th>
-          <th>Added At</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- Add rows here -->
-      </tbody>
-    </table>
+        if ($email === "kilogames786@gmai.com" && $password === "admin@123") {
+            header("Location: admin_panel.html");
+            exit();
+        } else {
+            $error = "Invalid credentials. Please try again.";
+        }
+    }
+    ?>
+    <?php if ($error): ?>
+      <div class="error"><?php echo $error; ?></div>
+    <?php endif; ?>
+    <form method="POST">
+      <input type="email" name="email" placeholder="Email" required />
+      <input type="password" name="password" placeholder="Password" required />
+      <button type="submit">Login</button>
+    </form>
   </div>
-
 </body>
 </html>
